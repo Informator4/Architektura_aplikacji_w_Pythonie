@@ -1,0 +1,29 @@
+
+import re
+
+class Tokenizer:
+    """Konfigurowany tokenizator: HTML strip + case + min length filter."""
+    def __init__(self, lower: bool = True, strip_html: bool = True, min_length: int = 1):
+        self.lower = lower
+        self.strip_html = strip_html
+        self.min_length = min_length
+
+    def tokenize(self, text: str) -> list[str]:
+        if not isinstance(text, str):
+            text = str(text)
+        
+        if self.strip_html:
+            text = re.sub(r"<[^>]+>", " ", text)
+        
+        if self.lower:
+            text = text.lower()
+        
+        # Wsparcie dla polskich znaków
+        tokens = re.findall(r"\w+", text, re.UNICODE)
+        return [t for t in tokens if len(t) >= self.min_length]
+
+    def vocab(self, texts: list[str]) -> set[str]:
+        all_tokens = set()
+        for text in texts:
+            all_tokens.update(self.tokenize(text))
+        return all_tokens

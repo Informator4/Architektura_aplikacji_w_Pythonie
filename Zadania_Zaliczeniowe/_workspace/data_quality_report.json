@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-06-26T23:25:52.577451",
+  "dataset": "stanfordnlp/imdb",
+  "n_samples": 2000,
+  "contract_name": "imdb_quality_contract",
+  "results": {
+    "no_nulls": {
+      "passed": true,
+      "severity": "error",
+      "details": "OK"
+    },
+    "labels_in_set": {
+      "passed": true,
+      "severity": "error",
+      "details": "OK"
+    },
+    "min_word_count": {
+      "passed": true,
+      "severity": "error",
+      "details": "OK"
+    },
+    "max_word_count": {
+      "passed": true,
+      "severity": "warning",
+      "details": "OK"
+    },
+    "no_duplicates": {
+      "passed": true,
+      "severity": "warning",
+      "details": "OK"
+    },
+    "class_balance": {
+      "passed": true,
+      "severity": "warning",
+      "details": "OK"
+    },
+    "no_html_tags": {
+      "passed": false,
+      "severity": "warning",
+      "details": "Reguła nie spełniona"
+    }
+  }
+}
